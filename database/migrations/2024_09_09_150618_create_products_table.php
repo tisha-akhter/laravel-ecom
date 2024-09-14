@@ -20,10 +20,9 @@ return new class extends Migration
             $table->double('regular_price');
             $table->double('discount_price');
             $table->double('buying_price');
-            $table->integer('Quantity');
+            $table->integer('quantity');
             $table->string('sku_code');
             $table->string('product_type');
-            $table->string('rating');
             $table->longText('description');
             $table->longText('product_policy');
             $table->string('image');
