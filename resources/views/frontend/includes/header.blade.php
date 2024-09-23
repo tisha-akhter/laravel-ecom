@@ -28,25 +28,9 @@
                                         <li><a href="{{url('my/account')}}">My Account</a></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown-show"><a href="{{url('/shop')}}">Men</a>
+                                <li class="dropdown-show"><a href="{{url('/shop')}}">Catagory</a>
                                     <ul class="mega-menu-wrap dropdown-nav">
                                         <li class="mega-menu-item"><a href="{{url('/shop')}}" class="mega-item-title">Men's
-                                                Jewellery</a>
-                                            <ul>
-                                                <li><a href="{{url('/shop')}}">Silver Jewellery</a></li>
-                                                <li><a href="{{url('/shop')}}">Gold Jewellery</a></li>
-                                                <li><a href="{{url('/shop')}}">Stone Jewellery</a></li>
-                                                <li><a href="{{url('/shop')}}">Svaroski Stone Jewellery</a></li>
-                                                <li><a href="{{url('/shop')}}">Mixed Jewellery</a></li>
-                                            </ul>
-                                        </li>
-
-
-                                    </ul>
-                                </li>
-                                <li class="dropdown-show"><a href="{{url('/shop')}}">Women</a>
-                                    <ul class="mega-menu-wrap dropdown-nav">
-                                        <li class="mega-menu-item"><a href="{{url('/shop')}}" class="mega-item-title">Women's
                                                 Jewellery</a>
                                             <ul>
                                                 <li><a href="{{url('/shop')}}">Casual</a></li>
@@ -54,6 +38,22 @@
                                                 <li><a href="{{url('/shop')}}">Party</a></li>
                                                 <li><a href="{{url('/shop')}}">Beach</a></li>
                                                 <li><a href="{{url('/shop')}}">Unique</a></li>
+                                            </ul>
+                                        </li>
+
+
+                                    </ul>
+                                </li>
+                                <li class="dropdown-show"><a href="{{url('/shop')}}">Sub Catagory</a>
+                                    <ul class="mega-menu-wrap dropdown-nav">
+                                        <li class="mega-menu-item"><a href="{{url('/shop')}}" class="mega-item-title">Women's
+                                                Jewellery</a>
+                                            <ul>
+                                                <li><a href="{{url('/shop')}}">Silver Jewellery</a></li>
+                                                <li><a href="{{url('/shop')}}">Gold Jewellery</a></li>
+                                                <li><a href="{{url('/shop')}}">Stone Jewellery</a></li>
+                                                <li><a href="{{url('/shop')}}">Svaroski Stone Jewellery</a></li>
+                                                <li><a href="{{url('/shop')}}">Mixed Jewellery</a></li>
                                             </ul>
                                         </li>
                                     </ul>

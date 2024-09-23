@@ -12,21 +12,34 @@
         <tr>
           <th>SI</th>
           <th>Image</th>
+          <th>Product Name</th>
           <th>Catagory Name</th>
+          <th>SubCatagory Name</th>
+          <th>Buying Price</th>
+          <th>Regular Price</th>
+          <th>Discount Price</th>
+          <th>Qty</th>
+           
           <th>Action</th>
         </tr>
         </thead>
         <tbody>
-        @foreach ($catagories as $catagory)
+        @foreach ($products as $product)
         <tr>
             <td>{{$loop->index+1}}</td>
             <td>
-              <img src="{{asset('backend/images/catagory/'.$catagory->image)}}" alt="" height="100" width="100">
+              <img src="{{asset('backend/images/product/'.$product->image)}}" alt="" height="100" width="100">
             </td>
-            <td>{{$catagory->name}}</td>
+            <td>{{$product->name}}</td>
+            <td>{{$product->cat_id}}</td>
+            <td>{{$product->sub_cat_id}}</td>
+            <td>{{$product->buying_price}}</td>
+            <td>{{$product->regular_price}}</td>
+            <td>{{$product->discount_price}}</td>
+            <td>{{$product->quantity}}</td>
             <td>
-              <a href="{{url('/admin/edit-catagory/'.$catagory->id)}}" class="btn btn-primary">Edit</a>
-              <a href="{{url('/admin/delete-catagory/'.$catagory->id)}}" class="btn btn-danger">Delete</a>
+              <a href="{{url(''.$product->id)}}" class="btn btn-primary">Edit</a>
+              <a href="{{url(''.$product->id)}}" class="btn btn-danger">Delete</a>
             </td>
           </tr>
         @endforeach

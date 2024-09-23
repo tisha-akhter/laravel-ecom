@@ -3,7 +3,7 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Catagory List</h3>
+      <h3 class="card-title">SubCatagory List</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -11,22 +11,20 @@
         <thead>
         <tr>
           <th>SI</th>
-          <th>Image</th>
+          <th>SubCatagory Name</th>
           <th>Catagory Name</th>
           <th>Action</th>
         </tr>
         </thead>
         <tbody>
-        @foreach ($catagories as $catagory)
+        @foreach ($subCatagories as $subCatagory)
         <tr>
             <td>{{$loop->index+1}}</td>
+            <td>{{$subCatagory->name}}</td>
+            <td>{{$subCatagory->catagory->name}}</td>
             <td>
-              <img src="{{asset('backend/images/catagory/'.$catagory->image)}}" alt="" height="100" width="100">
-            </td>
-            <td>{{$catagory->name}}</td>
-            <td>
-              <a href="{{url('/admin/edit-catagory/'.$catagory->id)}}" class="btn btn-primary">Edit</a>
-              <a href="{{url('/admin/delete-catagory/'.$catagory->id)}}" class="btn btn-danger">Delete</a>
+              <a href="{{url('/admin/edit-subcatagory/'.$subCatagory->id)}}" class="btn btn-primary">Edit</a>
+              <a href="{{url('/admin/delete-subcatagory/'.$subCatagory->id)}}" class="btn btn-danger">Delete</a>
             </td>
           </tr>
         @endforeach

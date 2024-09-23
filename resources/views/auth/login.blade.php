@@ -139,11 +139,11 @@
 <body>
     <div class="full-screen-container">
         <div class="login-container">
-            <form class="login" method="POST" action="{{ route('login') }}">
+            <form class="login" method="POST" action="{{route('login')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="input-group">
                     <label for="email">Email</label>
-                    <input type="email" class="@error('email') is-invalid @enderror" id="email" name="email"
+                    <input type="email" class="@error('email') is-invalid @enderror" id="email" name="email" placeholder="Enter Your Name"
                         required />
                 </div>
                 @error('email')
@@ -153,7 +153,7 @@
                 @enderror
                 <div class="input-group">
                     <label for="password">Password</label>
-                    <input type="password" class="@error('password') is-invalid @enderror" id="password"
+                    <input type="password" class="@error('password') is-invalid @enderror" placeholder="Enter Your Password"
                         name="password" required />
                 </div>
                 @error('password')

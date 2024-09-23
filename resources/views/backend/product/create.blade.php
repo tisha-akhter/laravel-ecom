@@ -8,7 +8,8 @@
                 <h3 class="card-title">Add New Product</h3>
             </div>
             <!-- /.card-header -->
-            <form action="">
+            <form action="{{url('/admin/store-product')}}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
@@ -28,33 +29,45 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <!-- /.form-group -->
                             <div class="form-group">
                                 <label>Select Catagory</label>
                                 <select class="form-control select2" style="width: 100%;" name="cat_id">
-                                    <option value="" selected="selected">Catagory1</option>
-                                    <option value="">Catagory2</option>
-                                    <option value="">Gatagory3</option>
-                                    <option value="">Gatagory4</option>
+                                    <option selected disabled>Select Catagory</option>
+                                    @foreach ($catagories as $catagory)
+                                        <option value="{{$catagory->id}}">{{$catagory->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
-                            <!-- /.form-group -->
                         </div>
                         <div class="col-md-6">
-                            <!-- /.form-group -->
                             <div class="form-group">
                                 <label>Select Sub-Catagory</label>
                                 <select class="form-control select2" style="width: 100%;" name="sub_cat_id">
-                                    <option value="" selected="selected">Sub-Catagory1</option>
-                                    <option value="">Sub-Catagory2</option>
-                                    <option value="">Sub-Gatagory3</option>
-                                    <option value="">Sub-Gatagory4</option>
+                                    <option selected disabled>Select Sub Catagory</option>
+                                    @foreach ($subCatagories as $subCatagory)
+                                        <option value="{{$subCatagory->id}}">{{$subCatagory->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
+                        <div class="col-md-6" >
+                            <div class="form-group" id="color_fields">
+                                <label>Product Color(Optional)</label>
+                                <input type="text" name="color[]" value="" id="color" class="form-control"
+                                    placeholder="Enter product Color" >
+                            </div>
+                            <button type="button" class="btn btn-primary" id="add_color">Add More</button>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group" id="size_fields">
+                                <label>Product Size(Optional)</label>
+                                <input type="text" name="size[]" value="" id="size" class="form-control"
+                                    placeholder="Enter product Size" >
+                             </div>
+                             <button type="button" class="btn btn-primary" id="add_size">Add More</button>
+                        </div>
                     </div>
                     <div class="row">
-                        <!-- /.form-group -->
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Product Quantity*</label>
@@ -108,12 +121,24 @@
                             </div>
                         </div>
                         <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Gallery Images</label>
+                                <input type="file" accept="image/*" name="galleryImage[]" multiple value="" class="form-control"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
                             <label for="">Product Description</label>
                             <textarea id="summernote" name="description"></textarea>
                         </div>
                         <div class="col-md-12">
                             <label for="">Product Policy</label>
                             <textarea id="summernote2" name="product_policy"></textarea>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="submit" value="submit" class="form-control btn btn-primary btn-block">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -290,6 +315,22 @@
                 mode: "htmlmixed",
                 theme: "monokai"
             });
+        })
+    </script>
+
+    <script>
+    // Add more colors...
+
+        $(document).ready(function(){
+            $("#add_color").click(function(){
+                $("#color_fields").append('<input type="text" name="color[]" value="" id="color" class="form-control" placeholder="Enter product Color" >')
+            })
+        })
+    //Add more Sizes...
+       $(document).ready(function(){
+            $("#add_size").click(function(){
+                $("#size_fields").append('<input type="text" name="size[]" value="" id="size" class="form-control" placeholder="Enter product size" >')
+            })
         })
     </script>
 @endpush
