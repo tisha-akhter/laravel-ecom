@@ -3,13 +3,18 @@
 namespace App\Http\Controllers\Fronted;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class FrontedController extends Controller
 {
     public function index()
-    {
-        return view ('frontend.index');
+    {   
+        $featureProducts = Product::where('product_type','feature')->get();
+        $newProducts = Product::where('product_type','new')->get();
+        $regularProducts = Product::where('product_type','regular')->get();
+        $saleProduct = Product::where('product_type','sale');
+        return view ('frontend.index', compact('featureProducts','newProducts','regularProducts','saleProduct'));
     }
     public function productDetails ()
     {

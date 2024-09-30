@@ -31,15 +31,15 @@
               <img src="{{asset('backend/images/product/'.$product->image)}}" alt="" height="100" width="100">
             </td>
             <td>{{$product->name}}</td>
-            <td>{{$product->cat_id}}</td>
-            <td>{{$product->sub_cat_id}}</td>
+            <td>{{$product->catagory->name}}</td>
+            <td>{{$product->subCatagory->name}}</td>
             <td>{{$product->buying_price}}</td>
             <td>{{$product->regular_price}}</td>
             <td>{{$product->discount_price}}</td>
             <td>{{$product->quantity}}</td>
             <td>
-              <a href="{{url(''.$product->id)}}" class="btn btn-primary">Edit</a>
-              <a href="{{url(''.$product->id)}}" class="btn btn-danger">Delete</a>
+              <a href="{{url('/admin/edit-product/'.$product->id)}}" class="btn btn-primary">Edit</a>
+              <a href="{{url('/admin/delete-product/'.$product->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
             </td>
           </tr>
         @endforeach

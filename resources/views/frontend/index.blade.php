@@ -96,7 +96,7 @@
                         <div class="col-lg-12 text-center">
                             <!-- Section Title Start -->
                             <div class="section-title">
-                                <h2>New Collection Products</h2>
+                                <h2>Products</h2>
                                 <p>Best products on sale.</p>
                             </div>
                             <!-- Section Title End -->
@@ -116,7 +116,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a id="new-products-tab" data-toggle="tab" href="#new-products" role="tab"
-                                            aria-controls="new-products" aria-selected="false">New Products</a>
+                                            aria-controls="new-products" aria-selected="false">Regular Products</a>
                                     </li>
                                     <li class="nav-item">
                                         <a id="onsale-tab" data-toggle="tab" href="#onsale" role="tab"
@@ -127,20 +127,21 @@
 
                                 <!-- Tab Content Area Start -->
                                 <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade show active" id="feature-products" role="tabpanel"
+                                    <div class="tab-pane fade show active" id="feature-products" 
                                         aria-labelledby="feature-products-tab">
                                         <div class="products-wrapper">
                                             <div class="products-carousel owl-carousel">
                                                 <!-- Single Product Item -->
+                                                @foreach ($featureProducts as $product)
                                                 <div class="single-product-item text-center">
                                                     <figure class="product-thumb">
                                                         <a href="{{url('/product/details')}}"><img
-                                                                src="{{asset('frontend/assets/img/product-1.jpg') }}"
-                                                                alt="Products" class="img-fluid"></a>
+                                                                src="{{asset('backend/images/product/'.$product->image) }}"  alt="Products" class="img-fluid">
+                                                        </a>
                                                     </figure>
 
                                                     <div class="product-details">
-                                                        <h2><a href="{{url('/product/details')}}">Rose gold ring</a></h2>
+                                                        <h2><a href="{{url('/product/details')}}">{{$product->name}}</a></h2>
                                                         <div class="rating">
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>
@@ -148,43 +149,7 @@
                                                             <i class="fa fa-star-half"></i>
                                                             <i class="fa fa-star-o"></i>
                                                         </div>
-                                                        <span class="price">$52.00</span>
-                                                        <a href="{{url('/cart')}}" class="btn btn-add-to-cart">+ Add to
-                                                            Cart</a>
-                                                        <span class="product-bedge">New</span>
-                                                    </div>
-
-                                                    <div class="product-meta">
-                                                        <button type="button" data-toggle="modal"
-                                                            data-target="#quickView">
-                                                            <span data-toggle="tooltip" data-placement="left"
-                                                                title="Quick View"><i class="fa fa-compress"></i></span>
-                                                        </button>
-                                                        <a href="{{url('/wishlist')}}" data-toggle="tooltip"
-                                                            data-placement="left" title="Add to Wishlist"><i
-                                                                class="fa fa-heart-o"></i></a>
-                                                    </div>
-                                                </div>
-                                                <!-- Single Product Item -->
-
-                                                <!-- Single Product Item -->
-                                                <div class="single-product-item text-center">
-                                                    <figure class="product-thumb">
-                                                        <a href="{{url('/product/details')}}"><img
-                                                                src="{{ asset('frontend/assets/img/product-2.jpg') }}"
-                                                                alt="Products" class="img-fluid"></a>
-                                                    </figure>
-
-                                                    <div class="product-details">
-                                                        <h2><a href="{{url('/product/details')}}">Silver jewellry ring</a></h2>
-                                                        <div class="rating">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-o"></i>
-                                                        </div>
-                                                        <span class="price">$152.00</span>
+                                                        <span class="price">{{$product->regular_price}}</span>
                                                         <a href="{{url('/cart')}}" class="btn btn-add-to-cart">+ Add to
                                                             Cart</a>
                                                     </div>
@@ -200,77 +165,7 @@
                                                                 class="fa fa-heart-o"></i></a>
                                                     </div>
                                                 </div>
-                                                <!-- Single Product Item -->
-
-                                                <!-- Single Product Item -->
-                                                <div class="single-product-item text-center">
-                                                    <figure class={{url('/product/details')}}"><img
-                                                                src="{{ asset('frontend/assets/img/product-3.jpg') }}"
-                                                                alt="Products" class="img-fluid"></a>
-                                                    </figure>
-
-                                                    <div class="product-details">
-                                                        <h2><a href="{{url('/product/details')}}">Gold jewellry ring</a></h2>
-                                                        <div class="rating">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </div>
-                                                        <span class="price">$43.00</span>
-                                                        <a href="{{url('/cart')}}" class="btn btn-add-to-cart">+ Add to
-                                                            Cart</a>
-                                                    </div>
-
-                                                    <div class="product-meta">
-                                                        <button type="button" data-toggle="modal"
-                                                            data-target="#quickView">
-                                                            <span data-toggle="tooltip" data-placement="left"
-                                                                title="Quick View"><i class="fa fa-compress"></i></span>
-                                                        </button>
-                                                        <a href="{{url('/wishlist')}}" data-toggle="tooltip"
-                                                            data-placement="left" title="Add to Wishlist"><i
-                                                                class="fa fa-heart-o"></i></a>
-                                                    </div>
-                                                </div>
-                                                <!-- Single Product Item -->
-
-                                                <!-- Single Product Item -->
-                                                <div class="single-product-item text-center">
-                                                    <figure class="product-thumb">
-                                                        <a href="{{url('/product/details')}}"><img
-                                                                src="{{ asset('frontend/assets/img/product-4.jpg') }}"
-                                                                alt="Products" class="img-fluid"></a>
-                                                    </figure>
-
-                                                    <div class="product-details">
-                                                        <h2><a href="{{url('/product/details')}}">Unique gold ring</a></h2>
-                                                        <div class="rating">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-half"></i>
-                                                        </div>
-                                                        <span class="price">$83.00</span>
-                                                        <a href="{{url('/cart')}}" class="btn btn-add-to-cart">+ Add to
-                                                            Cart</a>
-                                                        <span class="product-bedge sale">Sale</span>
-                                                    </div>
-
-                                                    <div class="product-meta">
-                                                        <button type="button" data-toggle="modal"
-                                                            data-target="#quickView">
-                                                            <span data-toggle="tooltip" data-placement="left"
-                                                                title="Quick View"><i class="fa fa-compress"></i></span>
-                                                        </button>
-                                                        <a href="{{url('/wishlist')}}" data-toggle="tooltip"
-                                                            data-placement="left" title="Add to Wishlist"><i
-                                                                class="fa fa-heart-o"></i></a>
-                                                    </div>
-                                                </div>
-                                                <!-- Single Product Item -->
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
